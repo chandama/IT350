@@ -4,34 +4,45 @@
 * TODO: Still need to finish FK's for 1-1 relationships and review
 * the syntax for the 1-M relationships already implemented below
 * http://www.tech-recipes.com/rx/56738/one-to-one-one-to-many-table-relationships-in-sql-server/
+*
+* ATTENTION: On some of the online MySQL workbenchs FK's werent working on 
+* TABLE CREATE so I had to use:
+* 
+* 	ALTER TABLE cart ADD FOREIGN KEY (product_id) REFERENCES products(product_id);
+* 
+* TO add the FK's after the tables were created. 
 */
 
 CREATE TABLE customer (
-	cust_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	cust_id INT AUTO_INCREMENT NOT NULL,
 	name VARCHAR(255) NOT NULL,
 	email VARCHAR(255) NOT NULL,
 	address VARCHAR (255) NOT NULL,
-	cc_num VARCHAR(32)
+	cc_num VARCHAR(32),
+	PRIMARY KEY (cust_id)
 );
 
 CREATE TABLE cart (
-	cart_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	cart_id INT AUTO_INCREMENT NOT NULL,
 	status VARCHAR(64) NOT NULL,
 	Fk_product_id INT,
+	PRIMARY KEY (cart_id),
 	FOREIGN KEY (Fk_product_id) REFERENCES products(product_id)
 );
 
 CREATE TABLE employee (
-	employee_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	employee_id INT AUTO_INCREMENT NOT NULL,
 	Fk_cart_id INT,
+	PRIMARY KEY (employee_id),
 	FOREIGN KEY (Fk_cart_id) REFERENCES cart(cart_id)
 );
 
 CREATE TABLE products (
-	product_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	product_id INT AUTO_INCREMENT NOT NULL,
 	quantity_in_stock INT NOT NULL,
 	price INT NOT NULL,
 	Fk_review_id INT,
+	PRIMARY KEY (product_id),
 	FOREIGN KEY (Fk_review_id) REFERENCES review(review_id)
 );
 
@@ -73,5 +84,3 @@ CREATE TABLE flies (
 	color VARCHAR(64) NOT NULL,
 	fly_size INT NOT NULL
 );
-
-insert into 
