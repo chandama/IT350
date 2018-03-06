@@ -1,0 +1,191 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  background-image: url("https://i.stack.imgur.com/pMAiU.jpg");
+}
+
+header {
+  padding: 20px 0;
+}
+
+.navbar-brand:hover {
+  text-decoration: none;
+}
+
+footer .row {
+  display: flex;
+  align-items: center;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  box-shadow: 4px 4px 4px #000;
+  color: #ffffff;
+  height: 700px;
+  text-shadow: 1px 1px 1px #000;
+  margin-bottom: 30px;
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-top: 50px;
+}
+
+.banner1 h1 {
+  color: #DDD;
+  text-align: left;
+  margin-bottom: 50px;
+  font-size: 50px;
+  text-shadow: 2px 2px 2px #000;
+}
+
+.banner1 h3 {
+  color: #DDD;
+  text-align: left;
+  text-shadow: 1.5px 1.5px 1.5px #000;
+
+}
+
+section .row img {
+  margin: 0 0 30px;
+  width: 100%;
+}
+
+.btn.btn-primary {
+  border-radius: 2px;
+  border: 0px;
+  color: #000000;
+  text-shadow: none;
+  background-color: #ffffff;
+}
+
+.btn.btn-primary:hover {
+  color: #ffffff;
+  background-color: #e07c2d;
+}
+
+.btn.btn-newstyle {
+	color: #fff;
+	border: 2px;
+	border-radius: 2px;
+  text-decoration: underline;
+}
+
+.btn.btn-newstyle:hover {
+	color: #ffffff;
+	background-color: #e07c2d;
+}
+
+.btn-secondary {
+  background-color: #e07c2d;
+  color: #ffffff;
+  margin: 0 0 30px;
+}
+
+section img:hover {
+  opacity: 0.5;
+}
+
+section div div p {
+  color: #add;
+}
+
+footer {
+  font-size: 12px;
+  padding: 20px 0;
+}
+
+footer .col-sm-8 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer li img {
+  width: 32px;
+  height: 32px;
+}
+
+footer div p a {
+  text-decoration: none;
+  color: #ddd;
+}
+
+footer div p a:hover {
+  text-decoration: none;
+  color: #e07c2d;
+}
+
+
+#Endorsements {
+  color: #a07c4d;
+  text-decoration: underline;
+  font-size: 50px;
+  margin-left: 50px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #ff694e;
+}
+tr:nth-child(odd) {
+    background-color: #2a81cc;
+}
+th {
+    background-color: #4ca550;
+    color :white;
+    font-size: 20px;
+}
+
+.form-group {
+  color: white;
+}
+
+#scrolltext {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 70vw;
+  height: 50vh;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.contactfield {
+  font-size: 20px;
+  color: white;
+}
+
+#loginform {
+  margin-top: 50px;
+}
+#contactheader {
+  margin-top: 50px;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+}
