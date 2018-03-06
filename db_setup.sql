@@ -11,6 +11,8 @@
 * 	ALTER TABLE cart ADD FOREIGN KEY (product_id) REFERENCES products(product_id);
 * 
 * TO add the FK's after the tables were created. 
+* REFERENCES In Product subclasses may not need reference to 
+* Product ID. Just enforce it manually in your DB.
 */
 
 CREATE TABLE customer (
@@ -27,14 +29,14 @@ CREATE TABLE cart (
 	status VARCHAR(64) NOT NULL,
 	Fk_product_id INT,
 	PRIMARY KEY (cart_id),
-	FOREIGN KEY (Fk_product_id) REFERENCES products(product_id)
+	/*FOREIGN KEY (Fk_product_id) REFERENCES products(product_id)*/
 );
 
 CREATE TABLE employee (
 	employee_id INT AUTO_INCREMENT NOT NULL,
 	Fk_cart_id INT,
 	PRIMARY KEY (employee_id),
-	FOREIGN KEY (Fk_cart_id) REFERENCES cart(cart_id)
+	/*FOREIGN KEY (Fk_cart_id) REFERENCES cart(cart_id)*/
 );
 
 CREATE TABLE products (
@@ -54,8 +56,14 @@ CREATE TABLE review (
 	author VARCHAR(255)
 );
 
+/*
+	Probably don't need the REFERENCES on lines, reeels, rods, or flies. 
+	Just manually enforce it. Lines has already been changed to 
+	reflect these changes. Make sure it works before chanigng everything.
+*/
+
 CREATE TABLE lines (
-	line_id INT PRIMARY KEY REFERENCES products(product_id),
+	product_id INT PRIMARY KEY NOT NULL,
 	weight VARCHAR(255) NOT NULL,
 	sink_rate VARCHAR(64) NOT NULL,
 	brand VARCHAR(64) NOT NULL,
