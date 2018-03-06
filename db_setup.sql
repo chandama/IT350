@@ -45,7 +45,7 @@ CREATE TABLE products (
 	price INT NOT NULL,
 	Fk_review_id INT,
 	PRIMARY KEY (product_id),
-	FOREIGN KEY (Fk_review_id) REFERENCES review(review_id)
+	/*FOREIGN KEY (Fk_review_id) REFERENCES review(review_id)*/ 
 );
 
 CREATE TABLE review (
@@ -71,7 +71,7 @@ CREATE TABLE lines (
 );
 
 CREATE TABLE reels (
-	reel_id INT PRIMARY KEY REFERENCES products(product_id),
+	reel_id INT PRIMARY KEY NOT NULL,
 	weight VARCHAR(64) NOT NULL,
 	brand VARCHAR(64) NOT NULL,
 	model VARCHAR(64) NOT NULL,
@@ -79,7 +79,7 @@ CREATE TABLE reels (
 );
 
 CREATE TABLE rods (
-	rod_id INT PRIMARY KEY REFERENCES products(product_id),
+	rod_id INT PRIMARY KEY NOT NULL,
 	weight VARCHAR(64) NOT NULL,
 	brand VARCHAR(64) NOT NULL,
 	model VARCHAR(64) NOT NULL,
@@ -87,7 +87,7 @@ CREATE TABLE rods (
 );
 
 CREATE TABLE flies (
-	flies_id INT PRIMARY KEY REFERENCES products(product_id),
+	flies_id INT PRIMARY KEY NOT NULL,
 	name VARCHAR(64) NOT NULL,
 	color VARCHAR(64) NOT NULL,
 	fly_size INT NOT NULL
