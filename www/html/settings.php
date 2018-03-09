@@ -1,7 +1,7 @@
 <?php
-$username = "chandler";
-$password = "password";
-$database = "BlueHalo";
+$username = "bluehalo";
+$password = "bluehalo";
+$database = "bluehalo";
 $server = "localhost";
 $table = "employee";
 /*root user for mysql is itr0cks!*/
