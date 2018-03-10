@@ -37,25 +37,29 @@ Goals:
 	<div style="margin-left:25%">
 		<?php 
 
-			$sql = "SELECT * FROM admin";
+			$sql = "SELECT * FROM customer";
 			$result = mysqli_query($db,$sql);
 
 			if ($result->num_rows > 0) {
 				//Print the table headers
 				echo "<table><tr>
-				<th>Employee ID</th>
-				<th>Username</th>
-				<th>Password</th>
-				<th>Logged In</th>
+				<th>Customer ID</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Address</th>
+				<th>Zip Code</th>
 				</tr>";
 
 				while ($row = $result->fetch_assoc()) {
 					//Insert pulled data from mysqli_query
 					echo "<tr><td>"
-					.$row["id"]."</td><td>"
-					.$row['username']."</td><td>"
-					.$row['password']."</td><td>"
-					.$row['logged_in']."</td></tr>";
+					.$row["cust_id"]."</td><td>"
+					.$row['fname']."</td><td>"
+					.$row['lname']."</td><td>"
+					.$row['email']."</td><td>"
+					.$row['address']."</td><td>"
+					.$row['postcode']."</td></tr>";
 				}
 			echo "</table>";
 			}
@@ -65,14 +69,12 @@ Goals:
 			$db->close();
 		?>
 	</div>
-	<div style="margin-left:25%">
-		<form action="logout.php" id="logoutform">
-			<button type="submit" >Logout</button>
-		</form>
-		<form action="" id="Submit">
-			<button type="submit" >Submit</button>
-		</form>
-	</div>
+    <form action="logout.php" id="logoutform">
+		<button type="submit" >Logout</button>
+	</form>
+	<form action="" id="Submit">
+		<button type="submit" >Submit</button>
+	</form>
 </body>
 
         <!-- CSS Links -->

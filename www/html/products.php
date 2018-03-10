@@ -37,25 +37,31 @@ Goals:
 	<div style="margin-left:25%">
 		<?php 
 
-			$sql = "SELECT * FROM admin";
+			$sql = "SELECT * FROM products";
 			$result = mysqli_query($db,$sql);
 
 			if ($result->num_rows > 0) {
 				//Print the table headers
 				echo "<table><tr>
-				<th>Employee ID</th>
-				<th>Username</th>
-				<th>Password</th>
-				<th>Logged In</th>
+				<th>Product ID</th>
+				<th>Category</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Inventory</th>
+				<th>Price</th>
+				<th>Image Path</th>
 				</tr>";
 
 				while ($row = $result->fetch_assoc()) {
 					//Insert pulled data from mysqli_query
 					echo "<tr><td>"
 					.$row["id"]."</td><td>"
-					.$row['username']."</td><td>"
-					.$row['password']."</td><td>"
-					.$row['logged_in']."</td></tr>";
+					.$row['cat_id']."</td><td>"
+					.$row['name']."</td><td>"
+					.$row['description']."</td><td>"
+					.$row['inventory']."</td><td>"
+					.$row['price']."</td><td>"
+					.$row['image']."</td></tr>";
 				}
 			echo "</table>";
 			}
@@ -66,12 +72,37 @@ Goals:
 		?>
 	</div>
 	<div style="margin-left:25%">
+
 		<form action="logout.php" id="logoutform">
+
 			<button type="submit" >Logout</button>
+
 		</form>
-		<form action="" id="Submit">
-			<button type="submit" >Submit</button>
-		</form>
+		<div style="background-color:#707070;color:White">
+			<form action="addproduct.php" method="post">
+				<fieldset>
+					<legend>Add new product</legend>
+					Product Type:<br>
+					<select name="categoryid">
+						<option value="Rod">Fly Rod</option>
+						<option value="Reel">Reel</option>
+						<option value="Fly">Flies</option>
+						<option value="Line">Fly Line</option>
+					</select><br>
+					Name:<br>
+					<input type="text" name="itemname"><br>
+					Description:<br>
+					<input type="text" name="description"><br>
+					Inventory:<br>
+					<input type="number" name="inventory"><br>
+					Price:<br>
+					<input type="text" name="price"><br>	
+					Image Path:<br>
+					<input type="text" name="imgpath"><br>			
+				</fieldset>
+				<button type="submit" >Submit</button>
+			</form>
+		</div>
 	</div>
 </body>
 

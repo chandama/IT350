@@ -8,8 +8,7 @@ session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $myusername = $_POST['username'];
     $mypassword = $_POST['password'];
-    //$hashpw = sha1($mypassword);
-    $hashpw=$mypassword;
+    $hashpw = sha1($mypassword);
     $query = "SELECT * FROM $table WHERE username = '$myusername' and password = '$hashpw'";
     $result = mysqli_query($db,$query);
     //Check number of rows that match the query
