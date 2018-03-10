@@ -1,15 +1,10 @@
 <?php
-$username = "bluehalo";
-$password = "bluehalo";
+$username = "root";
+$password = "itr0cks!";
 $database = "bluehalo";
 $server = "localhost";
-$table = "employee";
-/*root user for mysql is itr0cks!*/
-/*
-	blue halo login info
-	username = bluehalo@localhost
-	password: bluehalo
-*/
+$table = "admin";
+/*root pw for phpmyadmin is root and VM password*/
 
 $db = mysqli_connect($server, $username, $password, $database);
 

@@ -70,6 +70,7 @@ CREATE TABLE IF NOT EXISTS admin (
 	id INT AUTO_INCREMENT NOT NULL,
 	username VARCHAR(100) NOT NULL,
 	password VARCHAR(40) NOT NULL,
+	logged_in INT NOT NULL DEFAULT 0,
 	PRIMARY KEY (id)
 	/*FOREIGN KEY (Fk_cart_id) REFERENCES cart(cart_id)*/
 );

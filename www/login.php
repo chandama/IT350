@@ -8,8 +8,8 @@ session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $myusername = $_POST['username'];
     $mypassword = $_POST['password'];
-    $hashpw = sha1($mypassword);
-
+    //$hashpw = sha1($mypassword);
+    $hashpw=$mypassword;
     $query = "SELECT * FROM $table WHERE username = '$myusername' and password = '$hashpw'";
     $result = mysqli_query($db,$query);
     //Check number of rows that match the query
@@ -20,14 +20,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       $_SESSION['username'] = $myusername;
       $_SESSION['logged_in'] = 1;
       //Update database logged_in to 1
-      $sql = "UPDATE employee SET logged_in = 1 WHERE username = '$myusername'";
+      $sql = "UPDATE admin SET logged_in = 1 WHERE username = '$myusername'";
       mysqli_query($db, $sql);
       //echo "<p>Success</p>";
       header("location:admin.php");
     }
-    else {
-      
+    else {  
       header("location:login.php");
+      session_unset();
+      session_destroy();
     }
   }
 
