@@ -32,9 +32,10 @@ Goals:
 	  <a href="/admin.php" class="w3-bar-item w3-button">Admin</a>
 	  <a href="/customers.php" class="w3-bar-item w3-button">Customers</a>
 	  <a href="/products.php" class="w3-bar-item w3-button">Products</a>
+	  <a href="/logout.php" class="w3-bar-item w3-button">Logout</a>
 	</div>
 
-	<div style="margin-left:25%">
+	<div style="margin-left:25%;width:50%">
 		<?php 
 
 			$sql = "SELECT * FROM products";
@@ -46,7 +47,7 @@ Goals:
 				<th>Product ID</th>
 				<th>Category</th>
 				<th>Name</th>
-				<th>Description</th>
+				<th>Item Description</th>
 				<th>Inventory</th>
 				<th>Price</th>
 				<th>Image Path</th>
@@ -72,14 +73,8 @@ Goals:
 		?>
 	</div>
 	<div style="margin-left:25%">
-
-		<form action="logout.php" id="logoutform">
-
-			<button type="submit" >Logout</button>
-
-		</form>
-		<div style="background-color:#707070;color:White">
-			<form action="addproduct.php" method="post">
+		<div style="background-color:#707070;color:White;width:35%;display:inline-block">
+			<form action="phpscripts/addproduct.php" method="post">
 				<fieldset>
 					<legend>Add new product</legend>
 					Product Type:<br>
@@ -103,7 +98,25 @@ Goals:
 				<button type="submit" >Submit</button>
 			</form>
 		</div>
-	</div>
+
+		<div style="background-color:#707070;color:White;width:35%;display:inline-block">
+			<form action="phpscripts/deleteproduct.php" method="post">
+				<fieldset>
+					<legend>Delete Product</legend>
+					Product Type:<br>
+					<select name="categoryid">
+						<option value="Rod">Fly Rod</option>
+						<option value="Reel">Reel</option>
+						<option value="Fly">Flies</option>
+						<option value="Line">Fly Line</option>
+					</select><br>
+					Product ID<br>
+					<input type="number" name="productid"><br>			
+				</fieldset>
+				<button type="submit" >Submit</button>
+			</form>
+		</div>
+	</div><br><br>
 </body>
 
         <!-- CSS Links -->

@@ -26,12 +26,12 @@ Goals:
 	</div>
 </head>	
 <body>
-
 	<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%,margin-left:25%">
 	  <h3 class="w3-bar-item">Menu</h3>
 	  <a href="/admin.php" class="w3-bar-item w3-button">Admin</a>
 	  <a href="/customers.php" class="w3-bar-item w3-button">Customers</a>
 	  <a href="/products.php" class="w3-bar-item w3-button">Products</a>
+	  <a href="/logout.php" class="w3-bar-item w3-button">Logout</a>
 	</div>
 
 	<div style="margin-left:25%">
@@ -66,9 +66,7 @@ Goals:
 		?>
 	</div>
 	<div style="margin-left:25%">
-		<form action="logout.php" id="logoutform">
-			<button type="submit" >Logout</button>
-		</form>
+
 		<form action="" id="Submit">
 			<button type="submit" >Submit</button>
 		</form>

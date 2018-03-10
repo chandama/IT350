@@ -32,9 +32,10 @@ Goals:
 	  <a href="/admin.php" class="w3-bar-item w3-button">Admin</a>
 	  <a href="/customers.php" class="w3-bar-item w3-button">Customers</a>
 	  <a href="/products.php" class="w3-bar-item w3-button">Products</a>
+	  <a href="/logout.php" class="w3-bar-item w3-button">Logout</a>
 	</div>
 
-	<div style="margin-left:25%">
+	<div style="margin-left:25%;width:50%">
 		<?php 
 
 			$sql = "SELECT * FROM customer";
@@ -69,12 +70,19 @@ Goals:
 			$db->close();
 		?>
 	</div>
-    <form action="logout.php" id="logoutform">
-		<button type="submit" >Logout</button>
-	</form>
-	<form action="" id="Submit">
-		<button type="submit" >Submit</button>
-	</form>
+	<div style="margin-left:25%">
+		<div style="background-color:#707070;color:White;width:35%;display:inline-block">
+			<form action="phpscripts/deletecustomer.php" method="post">
+				<fieldset>
+					<legend>Delete Customer</legend>
+					Customer ID:<br>
+					<input type="number" name="custid"><br>	
+					Customer Email:<br>
+					<input type="text" name="custemail"><br>
+					</fieldset>
+				<button type="submit" >Submit</button>
+			</form>
+		</div>
 </body>
 
         <!-- CSS Links -->
