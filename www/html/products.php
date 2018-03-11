@@ -98,7 +98,33 @@ Goals:
 				<button type="submit" >Submit</button>
 			</form>
 		</div>
-
+		<div style="background-color:#707070;color:White;width:35%;display:inline-block">
+			<form action="phpscripts/updateproduct.php" method="post">
+				<fieldset>
+					<legend>Update Products</legend>
+					Product ID<br>
+					<input type="number" name="productid"><br>
+					Product Type:<br>
+					<select name="categoryid">
+						<option value="Rod">Fly Rod</option>
+						<option value="Reel">Reel</option>
+						<option value="Fly">Flies</option>
+						<option value="Line">Fly Line</option>
+					</select><br>
+					Name:<br>
+					<input type="text" name="itemname"><br>
+					Description:<br>
+					<input type="text" name="description"><br>
+					Inventory:<br>
+					<input type="number" name="inventory"><br>
+					Price:<br>
+					<input type="text" name="price"><br>	
+					Image Path:<br>
+					<input type="text" name="imgpath"><br>			
+				</fieldset>
+				<button type="submit" >Submit</button>
+			</form>
+		</div>
 		<div style="background-color:#707070;color:White;width:35%;display:inline-block">
 			<form action="phpscripts/deleteproduct.php" method="post">
 				<fieldset>
@@ -116,6 +142,8 @@ Goals:
 				<button type="submit" >Submit</button>
 			</form>
 		</div>
+
+
 	</div><br><br>
 </body>
 

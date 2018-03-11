@@ -23,9 +23,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       echo "<p>Success</p>";
       header("location:admin.php");
     }
-    else {
-      
+    else { 
       header("location:login.php");
+      session_unset();
+      session_destroy();
     }
   }
 

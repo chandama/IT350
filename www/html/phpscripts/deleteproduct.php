@@ -28,5 +28,5 @@
 		mysqli_stmt_bind_param($statement, "is", $id, $category);
 		mysqli_stmt_execute($statement);
 	}
-	header("Location:products.php");
+	header("Location:../products.php");
 ?>

@@ -13,8 +13,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = mysqli_query($db,$query);
     //Check number of rows that match the query
     $count = mysqli_num_rows($result);
-
     //If matched row, then login the user and changed logged_in to true
+
+    //Prepared sql statement
+    /*$sql = "SELECT * FROM $table WHERE username = ? and password = ?";
+    //Escape string character variables
+    $username = mysqli_real_escape_string($db, $myusername);
+    $password = mysqli_real_escape_string($db, $hashpw);
+
+    $statement = mysqli_stmt_init($db);
+
+    if(!mysqli_stmt_prepare($statement,$sql)) {
+      echo "SQL Failed";
+    }
+    else {
+      mysqli_stmt_bind_param($statement, "ss", $username, $hashpw);
+      mysqli_stmt_execute($statement);
+      echo "SQL Success";
+    }*/
+    
     if($count == 1) {
       $_SESSION['username'] = $myusername;
       $_SESSION['logged_in'] = 1;
@@ -59,7 +76,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php include('navbar.php');?>
  
   <section class="banner1">
-    <form action="" id="loginform" method="post">
+    <form action="login.php" id="loginform" method="post">
       <div class="container">
         <label class="contactfield"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="username" required>

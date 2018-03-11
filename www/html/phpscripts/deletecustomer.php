@@ -28,5 +28,5 @@
 		mysqli_stmt_bind_param($statement, "is", $customerid, $custemail);
 		mysqli_stmt_execute($statement);
 	}
-	header("Location:customers.php");
+	header("Location:../customers.php");
 ?>

@@ -72,6 +72,24 @@ Goals:
 	</div>
 	<div style="margin-left:25%">
 		<div style="background-color:#707070;color:White;width:35%;display:inline-block">
+			<form action="phpscripts/addcustomer.php" method="post">
+				<fieldset>
+					<legend>Add New Customer</legend>
+					First Name:<br>
+					<input type="text" name="firstname"><br>
+					Last Name:<br>
+					<input type="text" name="lastname"><br>
+					Email:<br>
+					<input type="text" name="email"><br>
+					Address:<br>
+					<input type="text" name="address"><br>	
+					Zip Code:<br>
+					<input type="text" name="zipcode"><br>			
+				</fieldset>
+				<button type="submit" >Submit</button>
+			</form>
+		</div>
+		<div style="background-color:#707070;color:White;width:35%;display:inline-block">
 			<form action="phpscripts/deletecustomer.php" method="post">
 				<fieldset>
 					<legend>Delete Customer</legend>

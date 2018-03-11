@@ -13,23 +13,20 @@
 	}
 
 	//SQL Statement
-	$sql = "INSERT INTO products (cat_id,name,description,inventory,price,image) VALUES (?,?,?,?,?,?)";
+	$sql = "DELETE FROM products WHERE id = ? AND cat_id = ?";
 	
 	//Variables from products.php form
+	$id = mysqli_real_escape_string($db, $_POST['productid']);
 	$category = mysqli_real_escape_string($db, $_POST['categoryid']);
-	$product = mysqli_real_escape_string($db, $_POST['itemname']);
-	$description = mysqli_real_escape_string($db, $_POST['description']);
-	$inventory = mysqli_real_escape_string($db, $_POST['inventory']);
-	$price = mysqli_real_escape_string($db, $_POST['price']);
-	$imgpath = mysqli_real_escape_string($db, $_POST['imgpath']);
+
 
 	$statement = mysqli_stmt_init($db);
 	if(!mysqli_stmt_prepare($statement,$sql)) {
 		echo "SQL Failed";
 	}
 	else {
-		mysqli_stmt_bind_param($statement, "sssids", $category, $product, $description, $inventory, $price, $imgpath);
+		mysqli_stmt_bind_param($statement, "is", $id, $category);
 		mysqli_stmt_execute($statement);
 	}
-	header("Location:../products.php");
+	header("Location:products.php");
 ?>

@@ -10,12 +10,9 @@
 
 	if($db->connect_error){
 		die("Database Connection Failed".$db->connect_error);
-	}
-
-	//SQL Statement
-	$sql = "INSERT INTO products (cat_id,name,description,inventory,price,image) VALUES (?,?,?,?,?,?)";
-	
+	}	
 	//Variables from products.php form
+	$id = mysqli_real_escape_string($db, $_POST['productid']);
 	$category = mysqli_real_escape_string($db, $_POST['categoryid']);
 	$product = mysqli_real_escape_string($db, $_POST['itemname']);
 	$description = mysqli_real_escape_string($db, $_POST['description']);
@@ -23,13 +20,18 @@
 	$price = mysqli_real_escape_string($db, $_POST['price']);
 	$imgpath = mysqli_real_escape_string($db, $_POST['imgpath']);
 
-	$statement = mysqli_stmt_init($db);
-	if(!mysqli_stmt_prepare($statement,$sql)) {
-		echo "SQL Failed";
-	}
-	else {
-		mysqli_stmt_bind_param($statement, "sssids", $category, $product, $description, $inventory, $price, $imgpath);
-		mysqli_stmt_execute($statement);
-	}
+	$stmt = $db->prepare("UPDATE products SET cat_id = ?, name = ?, description = ?,
+	 	inventory = ?, price = ?, image = ? WHERE id = ?");
+	$stmt->bind_param("sssidsi", $category, $product, $description, $inventory,
+		$price, $imgpath, $id);
+	$stmt->execute();
+	$stmt->close();
+	// if(!mysqli_stmt_prepare($statement,$sql)) {
+	// 	echo "SQL Failed";
+	// }
+	// else {
+	// 	mysqli_stmt_bind_param($statement, "sssids", $category, $product, $description, $inventory, $price, $imgpath);
+	// 	mysqli_stmt_execute($statement);
+	// }
 	header("Location:../products.php");
 ?>

@@ -13,20 +13,22 @@
 	}
 
 	//SQL Statement
-	$sql = "INSERT INTO customer (fname,lname) VALUES (?,?)";
+	$sql = "INSERT INTO customer (fname,lname,email,address,postcode) VALUES (?,?,?,?,?)";
 	
 	//Variables from customer.php form
-	$firstname = mysqli_real_escape_string($db, $_POST['categoryid']);
-	$lastname = mysqli_real_escape_string($db, $_POST['itemname']);
-	$password = mysqli_real_escape_string($db, $_POST['itemname']);
-	$hashpw = sha1($password);
+	$firstname = mysqli_real_escape_string($db, $_POST['firstname']);
+	$lastname = mysqli_real_escape_string($db, $_POST['lastname']);
+	$email = mysqli_real_escape_string($db, $_POST['email']);
+	$address = mysqli_real_escape_string($db, $_POST['address']);
+	$postcode = mysqli_real_escape_string($db, $_POST['zipcode']);
+
 	$statement = mysqli_stmt_init($db);
 	if(!mysqli_stmt_prepare($statement,$sql)) {
 		echo "SQL Failed";
 	}
 	else {
-		mysqli_stmt_bind_param($statement, "ssi", $category, $product, $description, $inventory, $price, $imgpath);
+		mysqli_stmt_bind_param($statement, "ssssi", $firstname, $lastname, $email, $address, $postcode);
 		mysqli_stmt_execute($statement);
 	}
-	header("Location:products.php");
+	header("Location:../customers.php");
 ?>
