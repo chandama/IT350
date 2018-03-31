@@ -6,43 +6,28 @@ include("settings.php");
 session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $myusername = $_POST['username'];
+    $myusername = $_POST['email'];
     $mypassword = $_POST['password'];
     $hashpw = sha1($mypassword);
-    $query = "SELECT * FROM $table WHERE username = '$myusername' and password = '$hashpw'";
+    $query = "SELECT * FROM customer WHERE email = '$myusername' and password = '$hashpw'";
     $result = mysqli_query($db,$query);
     //Check number of rows that match the query
     $count = mysqli_num_rows($result);
     //If matched row, then login the user and changed logged_in to true
 
-    //Prepared sql statement
-    /*$sql = "SELECT * FROM $table WHERE username = ? and password = ?";
-    //Escape string character variables
-    $username = mysqli_real_escape_string($db, $myusername);
-    $password = mysqli_real_escape_string($db, $hashpw);
 
-    $statement = mysqli_stmt_init($db);
-
-    if(!mysqli_stmt_prepare($statement,$sql)) {
-      echo "SQL Failed";
-    }
-    else {
-      mysqli_stmt_bind_param($statement, "ss", $username, $hashpw);
-      mysqli_stmt_execute($statement);
-      echo "SQL Success";
-    }*/
     
     if($count == 1) {
       $_SESSION['username'] = $myusername;
       $_SESSION['logged_in'] = 1;
       //Update database logged_in to 1
-      $sql = "UPDATE admin SET logged_in = 1 WHERE username = '$myusername'";
+      $sql = "UPDATE customer SET logged_in = 1 WHERE email = '$myusername'";
       mysqli_query($db, $sql);
       //echo "<p>Success</p>";
-      header("location:admin.php");
+      header("location:home.php");
     }
     else {  
-      header("location:login.php");
+      header("location:customer_login.php");
       session_unset();
       session_destroy();
     }
@@ -76,10 +61,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php include('navbar.php');?>
  
   <section class="banner1">
-    <form action="login.php" id="loginform" method="post">
+    <form action="customer_login.php" id="loginform" method="post">
       <div class="container">
-        <label class="contactfield"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="username" required>
+        <label class="contactfield"><b>Email</b></label>
+        <input type="text" placeholder="Email" name="email" required>
 
         <label class="contactfield"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" required>
